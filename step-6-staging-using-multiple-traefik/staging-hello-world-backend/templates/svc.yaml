@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: staging-hello-world-service
+  labels:
+    product: server
+spec:
+  selector:
+    app: staging-hello-world
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+      name: staging-hello-world

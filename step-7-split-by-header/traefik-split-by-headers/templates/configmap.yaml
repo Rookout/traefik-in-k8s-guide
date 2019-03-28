@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: traefik
+  labels:
+    app: traefik
+data:
+  traefik.toml: |
+    debug = true
+    defaultEntryPoints = ["http"]
+
+    [entryPoints]
+      [entryPoints.http]
+      address = ":80"
+
+    [file]
+
+    [backends]
+      [backends.backend1]
+        [backends.backend1.servers.server1]
+        url = "http://another-hello-world-header-1-service:80"
+
+      [backends.backend2]
+        [backends.backend2.servers.server1]
+        url = "http://another-hello-world-header-2-service:80"
+    [frontends]
+
+    [frontends.catchall]
+    backend = "backend1"
+      [frontends.catchall.routes.catchallrule]
+        rule = "PathPrefix:/"
+
+      [frontends.frontend1]
+      backend = "backend1"
+        [frontends.frontend1.routes.test_1]
+          rule = "Headers:backend-version,1"
+
+      [frontends.frontend2]
+      backend = "backend2"
+        [frontends.frontend2.routes.test_1]
+          rule = "Headers:backend-version,2"

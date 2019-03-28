@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: base-ingress
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+  - host: traefik.rookout-demo.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: hello-world-service
+          servicePort: 80

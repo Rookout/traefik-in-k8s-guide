@@ -1,0 +1,43 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: another-hello-world-header-2-server
+  labels:
+    product: another-hello-world-header-2
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: another-hello-world-header-2
+    spec:
+      containers:
+      - name: hello-world
+        image:  us.gcr.io/rookoutdev/traefik-hello-world:latest
+        ports:
+          - containerPort: 5000
+        env:
+          # Define the environment variable
+          - name: BACKGROUND_COLOR
+            value: "blue"
+          # Define the environment variable
+          - name: TITLE
+            value: "IM A V2 backend SERVER"
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: another-hello-world-header-2-service
+  labels:
+    product: server
+spec:
+  selector:
+    app: another-hello-world-header-2
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+      name: another-hello-world-header-2

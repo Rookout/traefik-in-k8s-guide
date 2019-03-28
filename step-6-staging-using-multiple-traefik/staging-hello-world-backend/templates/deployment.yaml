@@ -1,0 +1,25 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: staging-hello-world-server
+  labels:
+    product: staging-hello-world
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: staging-hello-world
+    spec:
+      containers:
+      - name: hello-world
+        image:  us.gcr.io/rookoutdev/traefik-hello-world:latest
+        ports:
+          - containerPort: 5000
+        env:
+          # Define the environment variable
+          - name: BACKGROUND_COLOR
+            value: "#AD6DDF"
+          # Define the environment variable
+          - name: TITLE
+            value: "THIS IS THE STAGING ENV"
