@@ -38,6 +38,13 @@ Clone the repo `git clone https://github.com/rookout/traefik-in-k8s-guide`
 If you encounter any issues whilst using cert-manager, and your issue is not
 documented, please [file an issue](https://github.com/Rookout/traefik-in-k8s-guide/issues).
 
+## About rookout
+
+Rookout empowers dev/ops teams to collect data on-the-fly.
+
+wherever it’s running, you can collect anything from variables and metrics to full stack -- to help you better understand your code behavior and quickly debug it. 
+
+You can also deliver the data on real-time to logging, alerting, APM and other platforms. For more information visit: https://rookout.com
 
 ---
 [//]: #URLs
