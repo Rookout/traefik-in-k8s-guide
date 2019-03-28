@@ -27,7 +27,7 @@ In this step we are going to add another backend service, and expose it using th
 5. Again we configure our traefik, not using config map but using k8s ingress object! 
 
 
-You can now visit: http://traefik.rookout-demo.com/ and http://traefik.rookout-demo.com/another-backend and check out apps!
+You can now visit: http://traefik.rookout-demo.com/ and http://traefik.rookout-demo.com/another/backend and check out apps!
 
 ---
 [//]: #URLs
