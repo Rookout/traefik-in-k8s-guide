@@ -21,7 +21,6 @@ We will deploy everything using a single helm chart:
 	
 This time the route is done by the configmap.yaml:
 ```yaml
-	
     [frontends.catchall]
     backend = "backend1"
       [frontends.catchall.routes.catchallrule]
